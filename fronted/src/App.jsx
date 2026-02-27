@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import "./App.css"
 import Planner from './Planner'
 import Login from './Login'
+import Dashboard from './Dashboard'
 
 function App() {
   return (
@@ -18,7 +19,11 @@ function App() {
             <Planner />
           </>
         } />
-
+        <Route path="/dashboard" element={
+          <>
+            <Dashboard />
+          </>
+        } />
       </Routes>
     </BrowserRouter>
   )

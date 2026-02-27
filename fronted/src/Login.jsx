@@ -11,28 +11,24 @@ function Login() {
   const handleSubmit = (e) => {
     e.preventDefault()
     
-    // Validación simple
     if (!email || !password) {
       setError('Por favor completa todos los campos')
       return
     }
 
-    // Simulación de login exitoso
-    // Aquí iría la lógica real de autenticación
     if (email === 'demo@example.com' && password === '123456') {
-      // Login exitoso - redirigir al planner
-      navigate('/planner')
+      // Login exitoso - redirigir al Dashboard
+      navigate('/dashboard')
     } else {
       setError('Credenciales incorrectas. Usa demo@example.com / 123456')
     }
   }
 
   const handleRegister = () => {
-    // Simulación de registro exitoso
-    // En una app real, aquí crearías un nuevo usuario
+
     if (email && password) {
-      alert('¡Registro exitoso! Serás redirigido al planner.')
-      navigate('/planner')
+      alert('¡Registro exitoso! Serás redirigido al Dashboard.')
+      navigate('/dashboard')
     } else {
       setError('Por favor completa todos los campos para registrarte')
     }
