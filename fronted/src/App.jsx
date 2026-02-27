@@ -1,34 +1,71 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className='content'>
+      <h1>Daily Timeboxing</h1>
+
+      <div className="date-section">
+        <h2>Planner</h2>
+        <span className="date-label">Date:</span>
+        <div className="date-inputs">
+          <input type="text" maxLength="4" className="date-box" /> /
+          <input type="text" maxLength="2" className="date-box" /> /
+          <input type="text" maxLength="2" className="date-box" />
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+
+      <div className="main-content">
+        <div className="left-section">
+          <h2 className="priorities-title">Top Priorities</h2>
+          <div className="priorities-inputs">
+            <input type="text" className="date-box" />
+            <input type="text" className="date-box" />
+            <input type="text" className="date-box" />
+          </div>
+
+          <div className="brain-dump-section">
+            <h2 className="section-title">Brain Dump</h2>
+            <div className="brain-inputs">
+              <textarea className="brain-box" rows="10" />
+            </div>
+          </div>
+        </div>
+
+        <div className="right-section">
+          <div className="time-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Numero</th>
+                  <th>:00</th>
+                  <th>:30</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  '5', '6', '7', '8', '9', '10', '11',
+                  '12', '1', '2', '3', '4', '5', '6',
+                  '7', '8', '9', '10', '11'
+                ].map((time, index) => (
+                  <tr key={index}>
+                    <td className="time-cell">{time}</td>
+                    <td className="activity-cell">
+                      <input type="text" className="time-input"/>
+                    </td>
+                    <td className="activity-cell"> 
+                      <input type="text" className="time-input"/>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </div>
   )
 }
 
